@@ -100,10 +100,10 @@ def aStar(maze, start, end):
 
             # f, g, h값 업데이트
             child.g = currentNode.g + 1
-            child.h = ((child.position[0] - endNode.position[0]) **
-                       2) + ((child.position[1] - endNode.position[1]) ** 2)
-            # child.h = heuristic(child, endNode) 다른 휴리스틱
-            # print("position:", child.position) 거리 추정 값 보기
+            # child.h = ((child.position[0] - endNode.position[0]) **
+            #            2) + ((child.position[1] - endNode.position[1]) ** 2)
+            child.h = heuristic(child, endNode) # 다른 휴리스틱
+            # print("position:", child.position) # 거리 추정 값 보기
             # print("from child to goal:", child.h)
             
             child.f = child.g + child.h
@@ -135,4 +135,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # [(0, 0), (1, 1), (2, 2), (3, 3), (4, 3), (5, 4), (6, 5), (7, 6)]
